@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using FluentAssertions;
+using System;
 
 namespace FizzBuzz.Tests
 {
@@ -187,6 +188,19 @@ namespace FizzBuzz.Tests
             //Assert
             sut.Should().BeOfType(typeof(int));
         }
+        [TestMethod()]
+        public void CheckNumber_Should_Return_a_number_if_valid_input()
+        {
+            //Arrange
+            Program p = new Program();
+
+            //Act
+            var sut = p.CheckNumber("100");
+
+            //Assert
+            sut.Should().Be(100); 
+        }
+
 
         [TestMethod()]
         public void CheckNumber_Should_Return_300_if_input_is_not_parsable()
